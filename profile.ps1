@@ -10,17 +10,18 @@
 
 ## params
 param(
+  [string]$profilePath = "d:/__work/__repos/pwsh-profile",
   [switch]$force = $false
   )
 
 
 ## profile original name
-$psProfileName="./profile.ps1"
+$psProfileName="$profilePath/profile.ps1"
 ## user`s profile path
 $userProfileName="%userprofile%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
 ### libs
-. ./lib/common.ps1
+. ${profilePath}/lib/common.ps1
 
 
 ###
