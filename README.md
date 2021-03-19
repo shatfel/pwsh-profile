@@ -3,6 +3,7 @@
 ## Pre-Install
 
 Get PowerShell 7+ from here: https://github.com/PowerShell/PowerShell/releases.
+
 Or check: https://github.com/PowerShell/PowerShell.
 
 ## Install
