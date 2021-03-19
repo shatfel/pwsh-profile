@@ -10,7 +10,7 @@
 
 ## params
 param(
-  [string]$profilePath = "d:/__work/__repos/pwsh-profile",
+  [string]$profilePath = ".",
   [switch]$force = $false
   )
 
