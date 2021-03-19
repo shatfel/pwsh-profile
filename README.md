@@ -28,7 +28,7 @@ pwsh profile.ps1 [-force]
 
 ## ToDo
 
-https://github.com/shatfel/pwsh-profile/blob/main/TODO.md
+[ToDo](https://github.com/shatfel/pwsh-profile/blob/main/TODO.md)
 
  
 >>>>>>> 05320c7b57959199afe6d9e45e509fbda332cb19
