@@ -11,17 +11,24 @@
 ## params
 param(
   [string]$profilePath = ".",
-  [switch]$force = $false
+  [switch]$force = $false,
+  [switch]$install = $false,
+  [switch]$verbose = $false
   )
 
 
+## pwd
+$_pwd = [System.IO.Path]::GetDirectoryName($myInvocation.MyCommand.Definition)
 ## profile original name
 $psProfileName="$profilePath/profile.ps1"
-## user`s profile path
+## user`s profile
 $userProfileName="%userprofile%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+$userProfilePath="%userprofile%\Documents\PowerShell"
+
+
 
 ### libs
-. ${profilePath}/lib/common.ps1
+. ${_pwd}/lib/common.ps1
 
 
 ###
@@ -34,6 +41,7 @@ function printParameters() {
   pP ("| User profile: ${userProfileName}")
   pP ("| PS Profile:   ${psProfileName}")
   pP ("| Force flag:   ${force}")
+  pP ("| Install flag:   ${install}")
   pP ("+-----")  
   }
 
@@ -47,6 +55,7 @@ function setProfile() {
 
     ## copy profile
     cp ${psProfileName} ${PROFILE}
+    cp -recurse  ${_pwd}/lib ${userProfilePath}/
     } 
   }
 
@@ -59,8 +68,14 @@ function setAliases() {
 ###
 ## main
 ###
-printParameters
-setProfile
+if ( $verbose ) {
+  printParameters
+  }
+
+## installing
+if ( $install ) {
+  setProfile
+  }
 
 
 ## other style for begin/end line
